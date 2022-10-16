@@ -4,23 +4,32 @@ from turtle import Turtle
 class Scoreboard(Turtle):
     def __init__(self):
         super().__init__()
-        self.color("white")
-        self.score = 0
-        self.create_banner()
-
-    def create_banner(self):
+        # self.color("white")
+        self.score_left = 0
+        self.score_right = 0
         self.hideturtle()
         self.penup()
         self.color("white")
-        self.goto(-360, 270)
-        self.write(f"Score: {self.score}", False, align="left", font=('Arial', 25, 'normal'))
+        self.create_banner()
 
-    def update(self):
+
+    def create_banner(self):
+        self.goto(-100, 200)
+        self.write(self.score_left, False, align="center", font=('Arial', 80, 'normal'))
+        self.goto(100, 200)
+        self.write(self.score_right, False, align="center", font=('Arial', 80, 'normal'))
+
+    def update_left(self):
         self.clear()
-        self.score += 1
-        self.write(f"Score: {self.score}", False, align="center", font=('Arial', 25, 'normal'))
-        print("+1 to score")
-        print(self.score)
+        self.score_left += 1
+        self.create_banner()
+
+
+    def update_right(self):
+        self.clear()
+        self.score_right += 1
+        self.create_banner()
+
     def game_over(self):
         self.goto(0, 0)
         self.write(f"GAME OVER", False, align="center", font=('Arial', 60, 'normal'))

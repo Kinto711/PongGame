@@ -18,7 +18,15 @@ class Ball(Turtle):
         new_y += self.y_move
         self.goto(new_x, new_y)
 
+    def move_after_miss_left(self):
+        self.goto(0,0)
+        self.x_move *= -1
+        self.y_move *= -1
 
+    def move_after_miss_right(self):
+        self.goto(0,0)
+        self.x_move *= -1
+        self.y_move *= -1
     def bounce_y(self):
         self.y_move *= -1
 
