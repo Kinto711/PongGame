@@ -1,6 +1,5 @@
 from turtle import Turtle, Screen
-
-import scoreboard
+import time
 from paddle import Paddle
 from ball import Ball
 from scoreboard import Scoreboard
@@ -37,6 +36,7 @@ screen.onkey(paddle.down_right_paddle, "s")
 
 game_is_on = True
 while game_is_on:
+    time.sleep(ball.ball_speed)
     screen.update()
     ball.move()
     # detect collision with top and bottom walls

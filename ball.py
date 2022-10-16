@@ -7,8 +7,9 @@ class Ball(Turtle):
         self.color("white")
         self.penup()
         self.speed("normal")
-        self.x_move = 1
-        self.y_move = 1
+        self.x_move = 10
+        self.y_move = 10
+        self.ball_speed =0.1
 
     def move(self):
         new_x = self.xcor()
@@ -19,16 +20,20 @@ class Ball(Turtle):
         self.goto(new_x, new_y)
 
     def move_after_miss_left(self):
-        self.goto(0,0)
+        self.goto(0, 0)
+        self.ball_speed = 0.1
         self.x_move *= -1
         self.y_move *= -1
 
     def move_after_miss_right(self):
-        self.goto(0,0)
+        self.goto(0, 0)
+        self.ball_speed = 0.1
         self.x_move *= -1
         self.y_move *= -1
     def bounce_y(self):
         self.y_move *= -1
+        self.ball_speed *= 0.9
 
     def bounce_x(self):
         self.x_move *= -1
+        self.ball_speed *= 0.9
